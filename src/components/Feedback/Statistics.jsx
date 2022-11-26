@@ -4,7 +4,7 @@ const List = styled.ul`
     li:first-letter{text-transform: capitalize;}
     li:not(:last-child){margin-bottom:${p => p.theme.space[4]}px;}
     span:not(:last-child){margin-right:${p => p.theme.space[3]}px;}
-`;
+    `;
 export const Statistics = ({good ,neutral, bad , total, percentage}) => {
     return (
             <List >

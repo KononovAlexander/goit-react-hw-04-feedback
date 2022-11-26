@@ -21,8 +21,8 @@ const Button = styled.button`
 `;
 
 export const FeedbackOptions = ({options, onLeaveFeedback }) => {
-    console.log('options: ', options);
-   return ( <List>
+
+return ( <List>
                     {options.map(option => <li 
                     
                             key={option}><Button    

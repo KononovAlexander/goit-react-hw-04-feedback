@@ -1,4 +1,4 @@
-import React from 'react';
+import {useState}from 'react';
 import { Notification } from './Feedback/Notification';
 import { Section } from './Feedback/Section';
 import { Statistics } from './Feedback/Statistics';
@@ -16,27 +16,25 @@ const Container = styled.div`
 `
 
 
-export class App extends React.Component  {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0
-      } 
+export const App =  () => {
+
+  const[good, setGood] = useState(0);
+  const[neutral, setNeutral] = useState(0);
+  const[bad, setBad] = useState(0);
 
 
-      LeaveFedback = (event) => {
-        
-        this.setState((prevState) => {
-            const { name } = event.target;
-            return {
-                [name]: prevState[name] + 1,            
-            }
-          })
-        }
-  render () {
-    const good = this.state.good
-    const neutral = this.state.neutral
-    const bad = this.state.bad  
+    const  LeaveFedback = (event) => {
+      const {name} = event.target 
+      if(name === 'good'){
+          setGood(good + 1)
+      }
+      if(name === 'neutral' ){
+        setNeutral(neutral + 1)
+      }
+      if(name === 'bad'){
+        setBad(bad + 1)
+      }
+    }
 
     const total = good + neutral + bad
     const percentage =  Math.round((100 * good) / total)
@@ -47,8 +45,8 @@ export class App extends React.Component  {
               <Section title={'please leave feedback'}>
                         
                         <FeedbackOptions
-                            options={Object.keys(this.state)} 
-                            onLeaveFeedback={this.LeaveFedback} />
+                            options={['good', 'neutral','bad'] }
+                            onLeaveFeedback={LeaveFedback} />
                         </Section>
                         <Section title={'statistics'}>
                         {total === 0 ?   <Notification message={'There is no feedback'}/> :
@@ -64,5 +62,5 @@ export class App extends React.Component  {
 
                                 
       </Container>)
-  }
+  
 }
