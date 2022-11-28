@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from 'styled-components';
 
 const List = styled.ul`
@@ -33,7 +34,10 @@ return ( <List>
     )
 }
 
-
+FeedbackOptions.propTypes = {
+    options:PropTypes.array,
+    onLeaveFeedback:PropTypes.func
+}
 
 
 

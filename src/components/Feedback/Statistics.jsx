@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from 'styled-components';
 
 const List = styled.ul`
@@ -31,4 +32,12 @@ export const Statistics = ({good ,neutral, bad , total, percentage}) => {
     </List>
     )    
 
+}
+
+Statistics.propTypes = {
+    good:PropTypes.number,
+    neutral:PropTypes.number,
+    bad:PropTypes.number,
+    total:PropTypes.number,
+    percentage:PropTypes.number
 }
