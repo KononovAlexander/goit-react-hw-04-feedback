@@ -28,7 +28,7 @@ return ( <List>
                     
                             key={option}><Button    
                             name={option}
-                            onClick={ onLeaveFeedback}>{option}
+                            onClick={() => (onLeaveFeedback( option))}>{option}
                     </Button></li> )}
             </List>
     )

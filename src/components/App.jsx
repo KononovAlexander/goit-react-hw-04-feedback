@@ -23,8 +23,7 @@ export const App =  () => {
   const[bad, setBad] = useState(0);
 
 
-    const  LeaveFedback = (event) => {
-      const {name} = event.target 
+    const  LeaveFedback = (name) => {
       if(name === 'good'){
           setGood(good + 1)
       }
